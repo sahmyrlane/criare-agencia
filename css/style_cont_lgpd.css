@@ -1,0 +1,85 @@
+html {
+  scroll-behavior: smooth
+}
+
+.titulo-lgpd{
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: bold;
+  font-size: 1.75rem;
+  color:#151515;
+
+}
+
+p {
+  margin-bottom: 25px;
+}
+
+ul{
+  padding: 0px!important;
+}
+
+a {
+  color: #3273dc;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+a strong {
+  color: currentColor;
+}
+
+a:hover {
+  color: #363636;
+}
+
+
+
+.menu-list {
+  line-height: 1.25;
+}
+
+.menu-list a {
+  border-radius: 2px;
+  color: #4a4a4a;
+  display: block;
+  padding: 0.5em 0.75em;
+}
+
+.sticky {
+  position: sticky;
+    top: 30px;
+}
+.menu-list a:hover {
+  background-color: #E0E0E0;
+  color: #363636;
+}
+
+.menu-list a.is-active {
+  background-color: #298BFA;
+  color: #fff;
+}
+
+.menu-list li ul {
+  border-left: 1px solid #dbdbdb;
+  margin: 0.75em;
+  padding-left: 0.75em;
+}
+
+.menu-label {
+  color: #7a7a7a;
+  font-size: 0.75em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.menu-label:not(:first-child) {
+  margin-top: 1em;
+}
+
+.menu-label:not(:last-child) {
+  margin-bottom: 1em;
+}
+.navbar.is-link {
+  background-color: #3273dc;
+  color: #fff;
+}
