@@ -1,5 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
 li {
 	list-style-type: none;
@@ -193,10 +193,19 @@ footer{
 }
 
 p{
-	font-family: noto-sans, sans-serif;
-	font-weight: 500;
+	font-family: "Poppins", system-ui;
+	font-weight: 400;
 	font-style: normal;
 
+
+}
+
+h1{
+	font-family: "Poppins", system-ui;
+  font-weight: 900;
+  font-style: normal;
+	font-size: 2.25 rem;
+	color:#151515;
 
 }
 
