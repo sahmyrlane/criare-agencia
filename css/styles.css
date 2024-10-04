@@ -235,7 +235,7 @@ h4{
 }
 
 h5{
-	font-family: 'Fira Sans', sans-serif;
+	font-family: 'Fira Sans', sans-serif;s
 	font-weight: bold;
 	font-size: 1rem;
 	color:#151515;
@@ -254,6 +254,7 @@ h6{
 	background-color: #DBE8F6;
 	border-style: none;
 	font-size: 32px;
+	font-weight: 700;
 	color: #600F8D;
 }
 
@@ -261,6 +262,7 @@ h6{
 
   background: rgb(131,58,180);
   background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 70%, rgba(252,176,69,1) 100%);
+  font-weight: 700;
 }
 
 p.cardtext{
