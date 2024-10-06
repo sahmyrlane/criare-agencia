@@ -149,12 +149,12 @@ font-family: "Poppins", system-ui;
 
 .borda-test{
 	
-	margin-left: 0px;
-	height: 103px;
-	border-radius: 5px;
-	border-top:0;
-	background-color: #FFCC29;
-	margin-top: 3px;
+	border-left: 1px solid rgb(191, 191, 191);
+	height: auto;
+	width: 0px;
+}
+.text-cnpj{
+	font-size: 0.75rem;
 }
 
 .borda-titulo{
