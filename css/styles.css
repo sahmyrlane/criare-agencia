@@ -147,10 +147,10 @@ font-family: "Poppins", system-ui;
 	width: 207px;
 }
 
-.borda-lgpd{
-	width:150px;
+.borda-test{
+	
 	margin-left: 0px;
-	height: 3px;
+	height: 103px;
 	border-radius: 5px;
 	border-top:0;
 	background-color: #FFCC29;
