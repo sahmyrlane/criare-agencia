@@ -166,7 +166,15 @@ font-family: "Poppins", system-ui;
 	margin-top: 5px;
 }
 
+img .img-port{
+	border-radius: 16px;
+}
 
+.img-port{
+	width: 325px; 
+	height: 433px;
+	border-radius: 16px;
+}
 
 .links-import{
 	font-family: 'Fira Sans', sans-serif;
