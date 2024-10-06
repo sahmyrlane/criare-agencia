@@ -243,11 +243,18 @@ h5{
 }
 
 h6{
-	font-family: 'Noto Sans', sans-serif;
-	font-weight: 700;
+	font-family: "Poppins", system-ui;
+	font-weight: 300;
 	font-size: 1rem;
 	color:#151515;
 
+}
+
+.title-card-services {
+	font-family:"Poppins", system-ui;
+	font-weight: 700;
+	font-size: 1.20rem;
+	color:#151515;
 }
 
 .button-header{
@@ -273,16 +280,6 @@ p.cardtext{
 
 
 
-h6{
-	font-family: 'noto Sans', sans-serif;
-	font-weight: 700;
-	font-size: 0.875rem;
-	color:white;
-	margin:auto;
-	letter-spacing: 0px;
-
-
-}
 
 .borda-lgpd{
 	width:150px;
