@@ -133,6 +133,11 @@ h6{
 }
 
 
+.logos-port{
+	height:90px;
+	width: 227px;
+}
+
 .borda-lgpd{
 	width:150px;
 	margin-left: 0px;
@@ -152,12 +157,7 @@ h6{
 	margin-top: 5px;
 }
 
-.aniv{
-	display: table;
-  overflow-y: auto;
-  max-width: 460px;
-	border-radius: 10px;
-}
+
 
 .links-import{
 	font-family: 'Fira Sans', sans-serif;
@@ -178,29 +178,6 @@ h6{
 
 }
 
-.listaniv {
-	font-family: Arial, Helvetica, sans-serif;
-	border-collapse: collapse;
-	width: 100%;
-	border-radius: 4px;
-
-
-	background-color: #DBE8F6;
-}
-
-.listaniv td {
-
-	padding: 8px;
-}
-
-.anivborder{
-	border-left: 1px solid #D9D9D9;
-	border-right: 1px solid #D9D9D9;
-
-}
-.listaniv  tr:nth-child(even){background-color: #F6F9FF;}
-
-.listaniv  tr:hover {background-color: white;}
 
 .nav-link{
 	margin-left: 10px;
