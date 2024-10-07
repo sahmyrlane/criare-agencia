@@ -17,6 +17,38 @@ body{
 
 }
 
+.carousel-item {
+    position: relative;
+    display: none; /* Oculta os itens que não estão ativos */
+}
+
+.carousel-item.active {
+    display: flex; /* Exibe apenas o item ativo */
+    z-index: 1; /* Usar z-index padrão */
+}
+
+.carousel-item-next,
+.carousel-item-prev {
+    display: flex; /* Para a transição suave */
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2; /* Manter os controles acima do conteúdo */
+}
+
+
+.img-slide{
+
+	width: 80vw;  /* Define a largura como 80% da viewport */
+	height: 80vh; /* Define a altura como 80% da viewport */
+	object-fit: contain; /* Mantém a proporção da imagem */
+}
+
+
 a:hover {
 
 	text-decoration: none;
@@ -183,16 +215,13 @@ font-family: "Poppins", system-ui;
 	font-size: 1.75rem;
 	
 }
-.img-slide{
 
-	width: 80vw;  /* Define a largura como 80% da viewport */
-	height: 80vh; /* Define a altura como 80% da viewport */
-	object-fit: contain; /* Mantém a proporção da imagem */
-}
 
-.carousel-inner > .item {
- }
-
+.carousel-item {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+  }
 .carousel-control-next,
 .carousel-control-prev /*, .carousel-indicators */ {
     filter: invert(100%);
