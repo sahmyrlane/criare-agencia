@@ -30,6 +30,11 @@ a:focus{
 	color: inherit;
 }
 
+button:focus{
+	text-decoration: none;
+	color: inherit;
+}
+
 a:active {
 
 	font-style: inherit;
