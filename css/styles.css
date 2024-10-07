@@ -20,16 +20,20 @@ body{
 .carousel-item {
     position: relative;
     display: none; /* Oculta os itens que não estão ativos */
+	z-index: 1; /* Z-index padrão */
+
 }
 
 .carousel-item.active {
     display: flex; /* Exibe apenas o item ativo */
-    z-index: 1; /* Usar z-index padrão */
+    z-index: 2; /* Usar z-index padrão */
 }
 
 .carousel-item-next,
 .carousel-item-prev {
     display: flex; /* Para a transição suave */
+	z-index: 1; /* Garante que não fiquem sobre o ativo */
+
 }
 
 .carousel-control-next,
@@ -37,9 +41,12 @@ body{
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 2; /* Manter os controles acima do conteúdo */
+    z-index: 3; /* Manter os controles acima do conteúdo */
 }
 
+.carousel-item:not(.active) {
+    display: none !important; /* Garante que as imagens não ativas fiquem escondidas */
+}
 
 .img-slide{
 
