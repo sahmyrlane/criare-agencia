@@ -17,6 +17,12 @@ body{
 
 }
 
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo escuro para as setas */
+    border-radius: 50%; /* Forma circular */
+}
+
+
 .inline-gallery-container {
     width: 100%;
 

@@ -38,20 +38,29 @@
     </div>
   </div>
 
+  <div id="modalprodmoda"></div> <!-- Para o conteúdo do modalprodmoda.html -->
+  <div id="modalfashionfilm"></div> <!-- Para o conteúdo do modalfashionfilm.html -->
+
   <script>
-    // Função para buscar conteúdo de outro arquivo HTML
-    fetch('partial.html')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Erro ao carregar o arquivo: ' + response.statusText);
-        }
-        return response.text();
-      })
-      .then(data => {
-        document.getElementById('content').innerHTML = data;
-      })
-      .catch(error => console.error('Erro ao carregar o arquivo:', error));
+    document.addEventListener("DOMContentLoaded", () => {
+      // Carregar modalprodmoda.html
+      fetch('modalprodmoda.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('modalprodmoda').innerHTML = data;
+        });
+
+      // Carregar modalfashionfilm.html
+      fetch('modalfashionfilm.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('modalfashionfilm').innerHTML = data;
+        });
+    });
   </script>
+
+</body>
+  
 
   <section id="acesse" class="mt-4">
     <h2 class="text-center">Nossos serviços</h2>
@@ -111,88 +120,7 @@
     </div>
   </section>
 
-  <!-- Modal Prod -->
-  <div class="modal fade" id="ModalProd" tabindex="-1" role="dialog" aria-labelledby="ModalProdTitle"
-        aria-hidden="true">
-        <div class="modal-dialog modal-fullscreen" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="ModalProdTitle">Produção de moda</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel"
-                        data-bs-interval="0">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img class="img-slide"
-                                    src="https://sahmyrlane.github.io/criare-agencia/scr/fotos-port/port-1.jpg"
-                                    alt="Primeiro slide">
-                            </div>
-                            <div class="carousel-item">
-                                <img class="img-slide"
-                                    src="https://sahmyrlane.github.io/criare-agencia/scr/fotos-port/port-2.jpg"
-                                    alt="Segundo slide">
-                            </div>
-                            <div class="carousel-item">
-                                <img class="img-slide"
-                                    src="https://sahmyrlane.github.io/criare-agencia/scr/fotos-port/port-3.jpg"
-                                    alt="Terceiro slide">
-                            </div>
-                            <div class="carousel-item">
-                              <img class="img-slide"
-                                  src="https://sahmyrlane.github.io/criare-agencia/scr/fotos-port/port-4.jpg"
-                                  alt="Terceiro slide">
-                          </div>
-
-                          <div class="carousel-item">
-                            <img class="img-slide"
-                                src="https://sahmyrlane.github.io/criare-agencia/scr/fotos-port/port-5.jpg"
-                                alt="Terceiro slide">
-                          </div>
-
-                          <div class="carousel-item">
-                            <img class="img-slide"
-                                src="https://sahmyrlane.github.io/criare-agencia/scr/fotos-port/port-6.jpg"
-                                alt="Terceiro slide">
-                          </div>
-
-                          <div class="carousel-item">
-                            <img class="img-slide"
-                                src="https://sahmyrlane.github.io/criare-agencia/scr/fotos-port/port-7.jpg"
-                                alt="Terceiro slide">
-                          </div>
-
-                          <div class="carousel-item">
-                            <img class="img-slide"
-                                src="https://sahmyrlane.github.io/criare-agencia/scr/fotos-port/port-8.jpg"
-                                alt="Terceiro slide">
-                          </div>
-
-                          <div class="carousel-item">
-                            <img class="img-slide"
-                                src="https://sahmyrlane.github.io/criare-agencia/scr/fotos-port/port-9.jpg"
-                                alt="Terceiro slide">
-                          </div>
-                            
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-                            data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-                            data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-<!-- Modal Prod -->
-
+ 
 
  <!-- Modal Design -->
  <div class="modal fade" id="ModalDesign" tabindex="-1" role="dialog" aria-labelledby="ModalDesignTitle" aria-hidden="true">
@@ -215,11 +143,18 @@
 </div>
 <!-- Modal Design -->
 
+ <!----------------------------    SEÇÃO CARDS DO PORTFOLIO  ------------------------------------------>
+
+ <!-- card 1 producao de moda -->
 <section class="port">
+
     <div class="row d-flex justify-content-center bg-white py-5 title-port">
+
       <div class="text-center">Portfólio</div>
+
       <div class="col-12 col-lg-3  py-5 pe-0 "> <!-- card 1 port -->
         <div class="text-center">
+          
           <button type="button" class="btn p-0" data-bs-toggle="modal" data-bs-target="#ModalProd">
 
             <div class="card text p-0">
@@ -229,13 +164,13 @@
                 <div class="card-title py-4 ps-4 text-white">Produção de moda criativa</div>
                 </div>
             </div>
-          </button>
+          </button>       
 
-         
-
-          </div>
+        </div>
           
-      </div> <!-- card 1 port -->
+      </div> <!-- card 1 card 1 producao de moda -->
+
+      <!-- card 2 design -->
 
       <div class="col-12 col-lg-3  py-5 "> <!-- card 2 port -->
         <div class="text-center">
@@ -251,24 +186,31 @@
           </button>
          
           </div>
-      </div> <!-- card 2 port -->
+      </div>  
+      
+      <!-- card 2 design -->
 
-      <div class="col-12 col-lg-3  py-5 "> <!-- card 3 port -->
+    
+       <!-- card 3 fashion films -->
+
+
+      <div class="col-12 col-lg-3  py-5 "> 
         <div class="text-center">
-          <button type="button " class="btn" data-bs-toggle="modal" data-bs-target="#JanelaModal">
+          <button type="button" class="btn p-0" data-bs-toggle="modal" data-bs-target="#ModalFashionFilm">
 
-            <div class="card text" style="">
+            <div class="card text p-0">
               
-               <img src="https://sahmyrlane.github.io/criare-agencia/scr/fashion-film.gif" class="p-0 img-port img-port" alt="..." style="height: 433px; width: 325px;">
+               <img src="https://sahmyrlane.github.io/criare-agencia/scr/fashion-film.gif" class="p-0 img-port img-port" alt="...">
             <div class="card-img-overlay p-0">
-                <div class="card-title py-4 ps-4 text-white">Fashion films</div>
+                <div class="card-title py-4 ps-4 text-white">Fashion Film</div>
                 </div>
             </div>
-          </button>
+          </button>   
           
           </div>
-      </div> <!-- card 3 port -->
-
+      </div>  
+      
+      <!-- card 3 fashion films -->
       <div class="col-12 col-lg-3  py-5 "> <!-- card 4 port -->
         <div class="text-center">
           <button type="button " class="btn" data-bs-toggle="modal" data-bs-target="#JanelaModal">
