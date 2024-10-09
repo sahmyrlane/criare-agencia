@@ -38,6 +38,18 @@
     </div>
   </div>
 
+  <script>
+    // Carrega conteúdo de outro arquivo HTML
+    fetch('partial.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('content').innerHTML = data;
+      })
+      .catch(error => console.error('Erro ao carregar o arquivo:', error));
+  </script>
+</body>
+</html>
+
   <section id="acesse" class="mt-4">
     <h2 class="text-center">Nossos serviços</h2>
     <hr class="borda-titulo" />

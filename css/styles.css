@@ -17,6 +17,22 @@ body{
 
 }
 
+.inline-gallery-container {
+    width: 100%;
+
+    // set 60% height
+    height: 0;
+    padding-bottom: 65%;
+}
+
+.carousel-video {
+	max-width: 60%; /* Ajuste a largura conforme necessário */
+	margin: 0 auto; /* Centralizar o vídeo */
+  }
+  .carousel-video .ratio {
+	max-height: 400px; /* Limitar a altura do vídeo */
+  }
+
 .carousel-item {
     position: relative;
     display: none; /* Oculta os itens que não estão ativos */
