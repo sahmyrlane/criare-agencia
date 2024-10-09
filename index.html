@@ -39,16 +39,19 @@
   </div>
 
   <script>
-    // Carrega conteúdo de outro arquivo HTML
+    // Função para buscar conteúdo de outro arquivo HTML
     fetch('partial.html')
-      .then(response => response.text())
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Erro ao carregar o arquivo: ' + response.statusText);
+        }
+        return response.text();
+      })
       .then(data => {
         document.getElementById('content').innerHTML = data;
       })
       .catch(error => console.error('Erro ao carregar o arquivo:', error));
   </script>
-</body>
-</html>
 
   <section id="acesse" class="mt-4">
     <h2 class="text-center">Nossos serviços</h2>
