@@ -31,44 +31,8 @@ body{
     padding-bottom: 65%;
 }
 
-.carousel-video {
-	max-width: 60%; /* Ajuste a largura conforme necessário */
-	margin: 0 auto; /* Centralizar o vídeo */
-  }
-  .carousel-video .ratio {
-	max-height: 400px; /* Limitar a altura do vídeo */
-  }
 
-.carousel-item {
-    position: relative;
-    display: none; /* Oculta os itens que não estão ativos */
-	z-index: 1; /* Z-index padrão */
 
-}
-
-.carousel-item.active {
-    display: flex; /* Exibe apenas o item ativo */
-    z-index: 2; /* Usar z-index padrão */
-}
-
-.carousel-item-next,
-.carousel-item-prev {
-    display: flex; /* Para a transição suave */
-	z-index: 1; /* Garante que não fiquem sobre o ativo */
-
-}
-
-.carousel-control-next,
-.carousel-control-prev {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 3; /* Manter os controles acima do conteúdo */
-}
-
-.carousel-item:not(.active) {
-    display: none !important; /* Garante que as imagens não ativas fiquem escondidas */
-}
 
 .img-slide{
 
@@ -246,15 +210,7 @@ font-family: "Poppins", system-ui;
 }
 
 
-.carousel-item {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-  }
-.carousel-control-next,
-.carousel-control-prev /*, .carousel-indicators */ {
-    filter: invert(100%);
-}
+
 
 .bg-opacity{
     background-color: #000;

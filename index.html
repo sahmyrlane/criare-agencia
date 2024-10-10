@@ -287,12 +287,30 @@
 </footer>
 
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
 
+<script>
+$(document).ready(function(){
+        // Ativa o carrossel com controle de intervalo
+        $('#videoCarousel').carousel({
+            interval: 7000,  // Define o intervalo de 7 segundos
+            pause: false     // Não pausa ao interagir com o carrossel
+        });
 
+        // Funções para as setas de controle
+        $(".carousel-control-prev").click(function(){
+            $('#videoCarousel').carousel('prev');  // Avança para o slide anterior
+        });
+
+        $(".carousel-control-next").click(function(){
+            $('#videoCarousel').carousel('next');  // Avança para o próximo slide
+        });
+    });
+</script>
 </body>
 
 
