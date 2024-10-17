@@ -13,7 +13,28 @@
   <title>Agência Criare</title>
 </head>
 
-<body>
+<body>]
+
+  <div id="modalprodmoda"></div> <!-- Para o conteúdo do modalprodmoda.html -->
+  <div id="modalfashionfilm"></div> <!-- Para o conteúdo do modalfashionfilm.html -->
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Carregar modalprodmoda.html
+      fetch('modalprodmoda.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('modalprodmoda').innerHTML = data;
+        });
+
+      // Carregar modalfashionfilm.html
+      fetch('modalfashionfilm.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('modalfashionfilm').innerHTML = data;
+        });
+    });
+  </script>
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-white">
     <div class="container m-0">
@@ -39,26 +60,7 @@
   </div>
 
 
-  <div id="modalprodmoda"></div> <!-- Para o conteúdo do modalprodmoda.html -->
-  <div id="modalfashionfilm"></div> <!-- Para o conteúdo do modalfashionfilm.html -->
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      // Carregar modalprodmoda.html
-      fetch('modalprodmoda.html')
-        .then(response => response.text())
-        .then(data => {
-          document.getElementById('modalprodmoda').innerHTML = data;
-        });
-
-      // Carregar modalfashionfilm.html
-      fetch('modalfashionfilm.html')
-        .then(response => response.text())
-        .then(data => {
-          document.getElementById('modalfashionfilm').innerHTML = data;
-        });
-    });
-  </script>
 
 
   
@@ -201,7 +203,7 @@
 
             <div class="card text p-0">
               
-               <img src="https://sahmyrlane.github.io/criare-agencia/scr/fashion-film.gif" class="p-0 img-port img-port" alt="...">
+               <img src="https://sahmyrlane.github.io/criare-agencia/scr/design-1.png" class="p-0 img-port img-port" alt="...">
             <div class="card-img-overlay p-0">
                 <div class="card-title py-4 ps-4 text-white">Fashion Film</div>
                 </div>
