@@ -15,12 +15,17 @@
 
 <body>]
 
+  <div id="modalprodmoda"></div> <!-- Para o conteúdo do modalprodmoda.html -->
   <div id="modalfashionfilm"></div> <!-- Para o conteúdo do modalfashionfilm.html -->
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       // Carregar modalprodmoda.html
-      
+      fetch('modalprodmoda.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('modalprodmoda').innerHTML = data;
+        });
 
       // Carregar modalfashionfilm.html
       fetch('modalfashionfilm.html')
@@ -198,24 +203,11 @@
 
             <div class="card text p-0">
               
-               <img src="https://sahmyrlane.github.io/criare-agencia/scr/design-1.png" class="p-0 img-port img-port" alt="...">
+               <img src="https://sahmyrlane.github.io/criare-agencia/scr/prod-1.png" class="p-0 img-port img-port" alt="...">
             <div class="card-img-overlay p-0">
                 <div class="card-title py-4 ps-4 text-white">Fashion Film</div>
                 </div>
             </div>
-            <div class="modal fade" id="ModalFashionFilm" tabindex="-1" role="dialog" aria-labelledby="ModalFashionFilmTitle"
-            aria-hidden="true">
-               <div class="modal-dialog modal-fullscreen" role="document">
-                   <div class="modal-content">
-                           <div class="modal-header">
-                                   <h5 class="modal-title" id="ModalFashionFilmTitle">Fashison Film</h5>
-                                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                           </div>
-                       
-           
-                           <iframe src="https://widgets.commoninja.com/iframe/47ffd252-95eb-4b0e-9d53-8de5c5992857" width="100%" height="100%" frameborder="0" scrolling="no"></iframe>    </div>
-           </div>
-            
           </button>   
           
           </div>
