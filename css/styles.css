@@ -1,1 +1,218 @@
-@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap);li{list-style-type:none}body{font-family:"Poppins",system-ui;font-weight:400;font-style:normal;background-color:#F3F3F3;font-size:0.875rem!important}.carousel-control-prev-icon,.carousel-control-next-icon{background-color:rgb(0 0 0 / .5);border-radius:50%}.img-slide{width:80vw;height:80vh;object-fit:contain}a:hover{text-decoration:none;color:inherit}a:focus{text-decoration:none;color:inherit}button:focus{text-decoration:none;color:inherit}a:active{font-style:inherit;text-decoration:none}footer{background-color:#DBE8F6}p{font-family:"Poppins",system-ui;font-weight:400;font-style:normal;font-size:1rem}h1{font-family:"Poppins",system-ui;font-weight:600;font-style:normal;font-size:5rem;color:#151515}h2{font-family:"Poppins",system-ui;font-weight:600;font-style:normal;font-size:2.25 rem;color:#151515}h3{font-family:'Fira Sans',sans-serif;font-weight:700;font-size:1.25rem;color:#034EA2}h4{font-family:'Fira Sans',sans-serif;font-weight:700;font-size:1.125rem;color:#151515}h5{font-family:"Poppins",system-ui;font-weight:400;font-size:1.2rem;color:#151515}h6{font-family:"Poppins",system-ui;font-weight:300;font-size:1rem;color:#151515}.title-port{font-family:"Poppins",system-ui;font-weight:600;font-style:normal;color:#600F8D;font-size:2.45rem}.title-card-services{font-family:"Poppins",system-ui;font-weight:600;font-size:1.6rem;color:#151515}.button-header{background-color:#fff;border-style:none;font-size:2rem;font-weight:700;color:#600F8D}.button-header:hover{background-color:hwb(35 3% 15%)}.bg-criare{background:#833ab4;background:linear-gradient(90deg,rgb(131 58 180) 0%,#c63838 70%,rgb(252 176 69) 100%);font-weight:700}.logos-port{height:83px;width:207px}.borda-test{border-left:1px solid #bfbfbf;height:auto;width:0}.text-cnpj{font-size:.75rem}.borda-titulo{width:150px;height:5px;border-radius:5px;border-top:0;background-color:#FFCC29;margin-top:5px}.card{border:none;background-color:#000;border-radius:16px}.card-title{text-align:left;font-weight:600;font-size:1.75rem}.bg-opacity{background-color:#000}.img-port{position:relative;opacity:.7}.links-import{font-family:'Fira Sans',sans-serif;font-weight:700;letter-spacing:.25px;font-size:1.125rem;color:#034EA2}.button-type{font-family:'Noto Sans',sans-serif;font-weight:700;font-size:.875rem;background-color:#034EA2;border-color:#034EA2!important}.nav-link{margin-left:10px}.footer-title{font-family:'noto Sans',sans-serif;font-weight:700;font-size:.875rem}.img-card-info{border-radius:4%;width:100%;height:190px}.img-links{border-radius:12px!important;box-shadow:0 1px 6px 0 rgb(32 33 36 / 20%);-webkit-box-shadow:0 1px 6px 0 rgb(32 33 36 / 20%);-moz-box-shadow:0 1px 6px 0 rgb(32 33 36 / 20%);background-color:#fff}.iconportal{position:relative;left:20px;top:10px;height:64px;width:64px}.linksimport{color:black!important}
+@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap);
+li {
+    list-style-type: none
+}
+
+body {
+    font-family: "Poppins", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    background-color: #F3F3F3;
+    font-size: 0.875rem !important
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgb(0 0 0 / .5);
+    border-radius: 50%
+}
+
+.img-slide {
+    width: 80vw;
+    height: 80vh;
+    object-fit: contain
+}
+
+a:hover {
+    text-decoration: none;
+    color: inherit
+}
+
+a:focus {
+    text-decoration: none;
+    color: inherit
+}
+
+button:focus {
+    text-decoration: none;
+    color: inherit
+}
+
+a:active {
+    font-style: inherit;
+    text-decoration: none
+}
+
+footer {
+    background-color: #DBE8F6
+}
+
+p {
+    font-family: "Poppins", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1rem
+}
+
+h1 {
+    font-family: "Poppins", system-ui;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 5rem;
+    color: #151515
+}
+
+h2 {
+    font-family: "Poppins", system-ui;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 2.25 rem;
+    color: #151515
+}
+
+h3 {
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: #034EA2
+}
+
+h4 {
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 700;
+    font-size: 1.125rem;
+    color: #151515
+}
+
+h5 {
+    font-family: "Poppins", system-ui;
+    font-weight: 400;
+    font-size: 1.2rem;
+    color: #151515
+}
+
+h6 {
+    font-family: "Poppins", system-ui;
+    font-weight: 300;
+    font-size: 1rem;
+    color: #151515
+}
+
+.title-port {
+    font-family: "Poppins", system-ui;
+    font-weight: 600;
+    font-style: normal;
+    color: #600F8D;
+    font-size: 2.45rem
+}
+
+.title-card-services {
+    font-family: "Poppins", system-ui;
+    font-weight: 600;
+    font-size: 1.6rem;
+    color: #151515
+}
+
+.button-header {
+    background-color: #fff;
+    border-style: none;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #600F8D
+}
+
+.button-header:hover {
+    background-color: hwb(35 3% 15%)
+}
+
+.bg-criare {
+    background: #833ab4;
+    background: linear-gradient(90deg, rgb(131 58 180) 0%, #c63838 70%, rgb(252 176 69) 100%);
+    font-weight: 700
+}
+
+.logos-port {
+    height: 83px;
+    width: 207px
+}
+
+.borda-test {
+    border-left: 1px solid #bfbfbf;
+    height: auto;
+    width: 0
+}
+
+.text-cnpj {
+    font-size: .75rem
+}
+
+.borda-titulo {
+    width: 150px;
+    height: 5px;
+    border-radius: 5px;
+    border-top: 0;
+    background-color: #FFCC29;
+    margin-top: 5px
+}
+
+.card {
+    border: none;
+    background-color: #000;
+    border-radius: 16px
+}
+
+.card-title {
+    text-align: left;
+    font-weight: 600;
+    font-size: 1.75rem
+}
+
+.bg-opacity {
+    background-color: #000
+}
+
+.img-port {
+    position: relative;
+    opacity: 0.7;
+}
+
+.links-import {
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 700;
+    letter-spacing: .25px;
+    font-size: 1.125rem;
+    color: #034EA2
+}
+
+.button-type {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 700;
+    font-size: .875rem;
+    background-color: #034EA2;
+    border-color: #034EA2 !important
+}
+
+.nav-link {
+    margin-left: 10px
+}
+
+.footer-title {
+    font-family: 'noto Sans', sans-serif;
+    font-weight: 700;
+    font-size: .875rem
+}
+
+.img-card-info {
+    border-radius: 4%;
+    width: 100%;
+    height: 190px
+}
+
+.img-links {
+    border-radius: 12px !important;
+    box-shadow: 0 1px 6px 0 rgb(32 33 36 / 20%);
+    -webkit-box-shadow: 0 1px 6px 0 rgb(32 33 36 / 20%);
+    -moz-box-shadow: 0 1px 6px 0 rgb(32 33 36 / 20%);
+    background-color: #fff
+}
+
