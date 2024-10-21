@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrossel de Vídeos do YouTube com Bootstrap</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons (for arrows) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
+    
+    <style>
+        .carousel-container {
+            width: 100%;
+            max-width: 800px; /* Aumenta a largura máxima do carrossel */
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden; /* Garante que nada extravase o contêiner */
+        }
+
+        .video-container {
+            display: none;
+            text-align: center;
+        }
+
+        .video-container.active {
+            display: block;
+        }
+
+        .carousel-controls {
+            position: absolute;
+            top: 40%; /* Mantém no meio vertical, mas ajusta mais para cima */
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%); /* Ajusta para centralizar as setas */
+            pointer-events: none; /* Não interfere no vídeo */
+        }
+
+        .carousel-controls i {
+            font-size: 2rem;
+            color: #007bff;
+            cursor: pointer;
+            pointer-events: all; /* Habilita os cliques nas setas */
+            margin: 0 20px; /* Adiciona margem lateral às setas */
+            background-color: rgba(255, 255, 255, 0.7); /* Fundo semi-transparente */
+            border-radius: 50%; /* Para um efeito de botão arredondado */
+            padding: 10px; /* Espaço ao redor do ícone */
+            transition: background-color 0.3s; /* Efeito de transição */
+            z-index: 1; /* Assegura que as setas fiquem acima do vídeo */
+        }
+
+        .carousel-controls i:hover {
+            background-color: rgba(0, 123, 255, 0.3); /* Fundo ao passar o mouse */
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* Manter a proporção 16:9 */
+            height: 0;
+        }
+
+        .video-wrapper div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .d-flex.align-items-center {
+            height: 100%; /* Garante que o container ocupe a altura total */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Carrossel de Vídeos do YouTube com Bootstrap</h2>
+
+        <div class="carousel-container">
+            <div class="video-wrapper">
+                <div class="video-container active" data-video-id="ID8_1PUF-qc"> <!-- Insira o novo ID do vídeo aqui -->
+                    <div id="player1"></div>
+                </div>
+                <div class="video-container" data-video-id="Wodf_G66-NQ"> <!-- Insira o novo ID do vídeo aqui -->
+                    <div id="player2"></div>
+                </div>
+                <div class="video-container" data-video-id="8YdR0pDExCU"> <!-- Insira o novo ID do vídeo aqui -->
+                    <div id="player3"></div>
+                </div>
+                <div class="video-container" data-video-id="GlcOuNm79Xk"> <!-- Insira o novo ID do vídeo aqui -->
+                    <div id="player4"></div>
+                </div>
+                <div class="video-container" data-video-id="BqK1mtAUAy8"> <!-- Insira o novo ID do vídeo aqui -->
+                    <div id="player5"></div>
+                </div>
+
+            </div>
+
+            <!-- Setas de controle do carrossel -->
+            <div class="carousel-controls d-flex align-items-center">
+                <i id="prev" class="bi bi-chevron-left"></i>
+                <i id="next" class="bi bi-chevron-right"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery, Bootstrap JS, and YouTube API -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script>
+        var players = [];
+        var currentIndex = 0;
+        var totalVideos = $('.video-container').length; // Total de vídeos baseado no HTML
+
+        // Função para criar players do YouTube
+        function onYouTubeIframeAPIReady() {
+            $('.video-container').each(function(index) {
+                var videoId = $(this).data('video-id'); // Obtém o ID do vídeo do atributo data
+                players[index] = new YT.Player('player' + (index + 1), {
+                    videoId: videoId,
+                    events: {
+                        'onReady': onPlayerReady
+                    }
+                });
+            });
+        }
+
+        function onPlayerReady(event) {
+            // Função chamada quando o player estiver pronto
+        }
+
+        function stopAllVideos() {
+            players.forEach(function(player) {
+                player.stopVideo();  // Para todos os vídeos
+            });
+        }
+
+        function updateCarousel() {
+            // Parar o vídeo atual
+            stopAllVideos();
+
+            // Atualiza o vídeo ativo
+            $('.video-container').removeClass('active').eq(currentIndex).addClass('active');
+        }
+
+        $('#prev').click(function () {
+            if (currentIndex === 0) {
+                currentIndex = totalVideos - 1; // Volta ao último vídeo
+            } else {
+                currentIndex--;
+            }
+            updateCarousel();
+        });
+
+        $('#next').click(function () {
+            if (currentIndex === totalVideos - 1) {
+                currentIndex = 0; // Volta ao primeiro vídeo
+            } else {
+                currentIndex++;
+            }
+            updateCarousel();
+        });
+
+    </script>
+
+</body>
+</html>
