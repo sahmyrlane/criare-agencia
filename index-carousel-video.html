@@ -1,68 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrossel de Vídeos do YouTube com Bootstrap</title>
-    
+
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    
+
     <!-- Bootstrap Icons (for arrows) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
-    
+
     <style>
+        /* Centraliza e ajusta o carrossel */
         .carousel-container {
             width: 100%;
-            max-width: 800px; /* Aumenta a largura máxima do carrossel */
             margin: 0 auto;
             position: relative;
-            overflow: hidden; /* Garante que nada extravase o contêiner */
+            overflow: hidden;
         }
 
+        /* Ocultar os vídeos que não estão ativos */
         .video-container {
             display: none;
             text-align: center;
         }
 
+        /* Exibir o vídeo ativo */
         .video-container.active {
             display: block;
         }
 
+        /* Ajuste das setas de controle do carrossel */
         .carousel-controls {
             position: absolute;
-            top: 40%; /* Mantém no meio vertical, mas ajusta mais para cima */
+            top: 50%;
             width: 100%;
             display: flex;
             justify-content: space-between;
-            transform: translateY(-50%); /* Ajusta para centralizar as setas */
-            pointer-events: none; /* Não interfere no vídeo */
+            transform: translateY(-50%);
+            pointer-events: none;
         }
 
+        /* Estilo para as setas de controle */
         .carousel-controls i {
             font-size: 2rem;
             color: #007bff;
             cursor: pointer;
-            pointer-events: all; /* Habilita os cliques nas setas */
-            margin: 0 20px; /* Adiciona margem lateral às setas */
-            background-color: rgba(255, 255, 255, 0.7); /* Fundo semi-transparente */
-            border-radius: 50%; /* Para um efeito de botão arredondado */
-            padding: 10px; /* Espaço ao redor do ícone */
-            transition: background-color 0.3s; /* Efeito de transição */
-            z-index: 1; /* Assegura que as setas fiquem acima do vídeo */
+            pointer-events: all;
+            margin: 0 20px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            padding: 10px;
+            transition: background-color 0.3s;
+            z-index: 1;
         }
 
         .carousel-controls i:hover {
-            background-color: rgba(0, 123, 255, 0.3); /* Fundo ao passar o mouse */
+            background-color: rgba(0, 123, 255, 0.3);
         }
 
+        /* Responsividade para vídeos em proporção 16:9 */
         .video-wrapper {
             position: relative;
-            padding-bottom: 56.25%; /* Manter a proporção 16:9 */
+            padding-bottom: 56.25%; /* Proporção 16:9 */
             height: 0;
         }
 
-        .video-wrapper div {
+        .video-wrapper iframe {
             position: absolute;
             top: 0;
             left: 0;
@@ -70,11 +76,29 @@
             height: 100%;
         }
 
-        .d-flex.align-items-center {
-            height: 100%; /* Garante que o container ocupe a altura total */
+        /* Ajustes para telas menores */
+        @media (max-width: 768px) {
+            .carousel-container {
+                max-width: 100%;
+                padding: 0 10px;
+            }
+
+            .carousel-controls i {
+                font-size: 1.5rem;
+                padding: 5px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .carousel-controls i {
+                font-size: 1.2rem;
+                padding: 4px;
+                margin: 0 10px;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <div class="container mt-5">
@@ -82,22 +106,21 @@
 
         <div class="carousel-container">
             <div class="video-wrapper">
-                <div class="video-container active" data-video-id="ID8_1PUF-qc"> <!-- Insira o novo ID do vídeo aqui -->
-                    <div id="player1"></div>
+                <div class="video-container active" data-video-id="ID8_1PUF-qc">
+                    <iframe id="player1" src="https://www.youtube.com/embed/ID8_1PUF-qc" frameborder="0" allowfullscreen></iframe>
                 </div>
-                <div class="video-container" data-video-id="Wodf_G66-NQ"> <!-- Insira o novo ID do vídeo aqui -->
-                    <div id="player2"></div>
+                <div class="video-container" data-video-id="Wodf_G66-NQ">
+                    <iframe id="player2" src="https://www.youtube.com/embed/Wodf_G66-NQ" frameborder="0" allowfullscreen></iframe>
                 </div>
-                <div class="video-container" data-video-id="8YdR0pDExCU"> <!-- Insira o novo ID do vídeo aqui -->
-                    <div id="player3"></div>
+                <div class="video-container" data-video-id="8YdR0pDExCU">
+                    <iframe id="player3" src="https://www.youtube.com/embed/8YdR0pDExCU" frameborder="0" allowfullscreen></iframe>
                 </div>
-                <div class="video-container" data-video-id="GlcOuNm79Xk"> <!-- Insira o novo ID do vídeo aqui -->
-                    <div id="player4"></div>
+                <div class="video-container" data-video-id="GlcOuNm79Xk">
+                    <iframe id="player4" src="https://www.youtube.com/embed/GlcOuNm79Xk" frameborder="0" allowfullscreen></iframe>
                 </div>
-                <div class="video-container" data-video-id="BqK1mtAUAy8"> <!-- Insira o novo ID do vídeo aqui -->
-                    <div id="player5"></div>
+                <div class="video-container" data-video-id="BqK1mtAUAy8">
+                    <iframe id="player5" src="https://www.youtube.com/embed/BqK1mtAUAy8" frameborder="0" allowfullscreen></iframe>
                 </div>
-
             </div>
 
             <!-- Setas de controle do carrossel -->
@@ -111,10 +134,8 @@
     <!-- jQuery, Bootstrap JS, and YouTube API -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://www.youtube.com/iframe_api"></script>
-    <script src="caroseul-video.js">    
-
-    </script>
+    <script src="caroseul-video.js"></script>
 
 </body>
+
 </html>
