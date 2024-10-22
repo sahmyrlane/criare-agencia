@@ -11,102 +11,15 @@
 
     <!-- Bootstrap Icons (for arrows) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
+    <link href="css/styles.css" rel="stylesheet">
 
-    <style>
-        /* Centraliza e ajusta o carrossel */
-        .carousel-container {
-            width: 100%;
-            margin: 0 auto;
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* Ocultar os vídeos que não estão ativos */
-        .video-container {
-            display: none;
-            text-align: center;
-        }
-
-        /* Exibir o vídeo ativo */
-        .video-container.active {
-            display: block;
-        }
-
-        /* Ajuste das setas de controle do carrossel */
-        .carousel-controls {
-            position: absolute;
-            top: 50%;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            transform: translateY(-50%);
-            pointer-events: none;
-        }
-
-        /* Estilo para as setas de controle */
-        .carousel-controls i {
-            font-size: 2rem;
-            color: #007bff;
-            cursor: pointer;
-            pointer-events: all;
-            margin: 0 20px;
-            background-color: rgba(255, 255, 255, 0.7);
-            border-radius: 50%;
-            padding: 10px;
-            transition: background-color 0.3s;
-            z-index: 1;
-        }
-
-        .carousel-controls i:hover {
-            background-color: rgba(0, 123, 255, 0.3);
-        }
-
-        /* Responsividade para vídeos em proporção 16:9 */
-        .video-wrapper {
-            position: relative;
-            padding-bottom: 56.25%; /* Proporção 16:9 padrão */
-            height: 0;
-        }
-
-        .video-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        /* Ajustes para vídeos verticais em telas menores */
-        @media (max-width: 768px) {
-            .video-wrapper {
-                padding-bottom: 177.77%; /* Proporção 9:16 para vídeos verticais */
-            }
-
-            .carousel-container {
-                max-width: 100%;
-                padding: 0 10px;
-            }
-
-            .carousel-controls i {
-                font-size: 1.5rem;
-                padding: 5px;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .carousel-controls i {
-                font-size: 1.2rem;
-                padding: 4px;
-                margin: 0 10px;
-            }
-        }
-    </style>
+    
 </head>
 
 <body>
 
     <div class="container mt-5">
-        <h2 class="text-center mb-4">Carrossel de Vídeos Verticais do YouTube</h2>
+        <h2 class="text-center mb-4">Carrossel de Vídeos Verticais</h2>
 
         <div class="carousel-container">
             <div class="video-wrapper">
