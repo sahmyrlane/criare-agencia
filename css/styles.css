@@ -96,13 +96,13 @@ body {
 }
 
 .carousel-controls i {
-    font-size: 2rem;
+    font-size: 0.65rem;
     color: #0d1a28;
     cursor: pointer;
     pointer-events: all; /* Habilita os cliques nas setas */
     margin: 0 20px; /* Adiciona margem lateral às setas */
     background-color: rgba(255, 255, 255, 0.7); /* Fundo semi-transparente */
-    border-radius: 50%; /* Para um efeito de botão arredondado */
+    border-radius: 80%; /* Para um efeito de botão arredondado */
     padding: 10px; /* Espaço ao redor do ícone */
     transition: background-color 0.3s; /* Efeito de transição */
     z-index: 1; /* Assegura que as setas fiquem acima do vídeo */
