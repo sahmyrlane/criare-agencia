@@ -1,60 +1,44 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Identificamos os modais de Fashion Film e Captação
-  const modals = {
-      'FashionFilm': {
-          modalId: '#ModalFashionFilm',
-          carouselId: 'fashion-carousel',
-          videos: ['ID8_1PUF-qc', 'Wodf_G66-NQ', '8YdR0pDExCU', 'GlcOuNm79Xk', 'BqK1mtAUAy8']
-      },
-      'Captacao': {
-          modalId: '#ModalCaptacao',
-          carouselId: 'captacao-carousel',
-          videos: ['kEHkVjbzAaI', 'anotherID', 'anotherID2'] // Adicione aqui os IDs de vídeo do carrossel de captação
-      }
-  };
-
-  // Função genérica para inicializar o carrossel de vídeos
-  function initializeCarousel(carouselId, videoIds) {
-      const videoWrapper = document.querySelector(`#${carouselId} .video-wrapper`);
-      const videoContainers = videoWrapper.querySelectorAll(".video-container");
-      let currentIndex = 0;
-
-      // Função para trocar o vídeo ativo
-      function changeVideo(index) {
-          videoContainers.forEach((container, i) => {
-              const iframe = container.querySelector('iframe');
-              if (i === index) {
-                  container.classList.add('active');
-                  iframe.src = `https://www.youtube.com/embed/${videoIds[i]}?autoplay=1`;
-              } else {
-                  container.classList.remove('active');
-                  iframe.src = ""; // Limpa o iframe quando não estiver ativo
-              }
-          });
-      }
-
-      // Configuração inicial
-      changeVideo(currentIndex);
-
-      // Controles de navegação no carrossel
-      document.querySelector(`#${carouselId} #prev`).addEventListener('click', function () {
-          currentIndex = (currentIndex === 0) ? videoIds.length - 1 : currentIndex - 1;
-          changeVideo(currentIndex);
+    // Inicializa variáveis para as setas e containers de vídeo
+    const prev = document.getElementById("prev");
+    const next = document.getElementById("next");
+    const videoContainers = document.querySelectorAll(".video-container");
+    let currentSlide = 0;
+  
+    // Função para atualizar o vídeo do slide ativo
+    function updateSlide() {
+      // Remove o iframe dos outros slides e pausa o vídeo
+      videoContainers.forEach((container, index) => {
+        const iframe = container.querySelector("iframe");
+        if (iframe) {
+          iframe.src = ""; // Limpa o src para pausar
+        }
+        container.classList.remove("active"); // Remove a classe ativa
       });
-
-      document.querySelector(`#${carouselId} #next`).addEventListener('click', function () {
-          currentIndex = (currentIndex === videoIds.length - 1) ? 0 : currentIndex + 1;
-          changeVideo(currentIndex);
-      });
-  }
-
-  // Inicializa o carrossel do Fashion Film quando o modal é aberto
-  $(modals.FashionFilm.modalId).on('shown.bs.modal', function () {
-      initializeCarousel(modals.FashionFilm.carouselId, modals.FashionFilm.videos);
+  
+      // Ativa o vídeo no slide atual
+      const activeContainer = videoContainers[currentSlide];
+      activeContainer.classList.add("active");
+  
+      // Configura o iframe para carregar o vídeo
+      const iframe = activeContainer.querySelector("iframe");
+      const videoId = activeContainer.getAttribute("data-video-id");
+      iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+    }
+  
+    // Evento para clicar na seta "anterior"
+    prev.addEventListener("click", function () {
+      currentSlide = (currentSlide - 1 + videoContainers.length) % videoContainers.length;
+      updateSlide();
+    });
+  
+    // Evento para clicar na seta "próxima"
+    next.addEventListener("click", function () {
+      currentSlide = (currentSlide + 1) % videoContainers.length;
+      updateSlide();
+    });
+  
+    // Carrega o primeiro vídeo ao abrir o modal
+    updateSlide();
   });
-
-  // Inicializa o carrossel de Captação quando o modal é aberto
-  $(modals.Captacao.modalId).on('shown.bs.modal', function () {
-      initializeCarousel(modals.Captacao.carouselId, modals.Captacao.videos);
-  });
-});
+  
