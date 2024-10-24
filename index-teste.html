@@ -423,42 +423,27 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-  function openModal(modalId) {
-            document.getElementById(modalId).style.display = "block";
-            setupVideoCarousel(modalId);
-        }
+ const slides = document.querySelectorAll('.slide');
+let currentSlide = 0;
 
-        function closeModal(modalId) {
-            document.getElementById(modalId).style.display = "none";
-        }
+function showSlide(index) {
+    slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+    });
+}
 
-        function setupVideoCarousel(modalId) {
-            const carousel = document.getElementById(modalId + 'Carousel');
-            const videos = carousel.getElementsByClassName('video-container');
-            let currentIndex = 0;
+document.querySelector('.next').addEventListener('click', () => {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+});
 
-            // Mostra o primeiro vídeo
-            updateVideoDisplay(videos, currentIndex);
+document.querySelector('.prev').addEventListener('click', () => {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    showSlide(currentSlide);
+});
 
-            function updateVideoDisplay(videos, index) {
-                for (let i = 0; i < videos.length; i++) {
-                    videos[i].style.display = i === index ? 'block' : 'none';
-                }
-            }
+showSlide(currentSlide);
 
-            window.navigateCarousel = function(carouselId, direction) {
-                const videos = document.getElementById(carouselId).getElementsByClassName('video-container');
-                currentIndex += direction;
-
-                if (currentIndex < 0) {
-                    currentIndex = videos.length - 1; // Volta para o último vídeo
-                } else if (currentIndex >= videos.length) {
-                    currentIndex = 0; // Volta para o primeiro vídeo
-                }
-
-                updateVideoDisplay(videos, currentIndex);
-            };
-        }
 </script>
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
