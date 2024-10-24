@@ -1,0 +1,272 @@
+@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap);
+
+li {
+    list-style-type: none;
+}
+
+body {
+    font-family: "Poppins", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    background-color: #F3F3F3;
+    font-size: 0.875rem !important;
+}
+
+/* Centraliza e ajusta o carrossel */
+.carousel-container {
+    width: 100%;
+    max-width: 800px; /* Aumenta a largura máxima do carrossel */
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden; /* Garante que nada extravase o contêiner */
+}
+
+/* Ocultar os vídeos que não estão ativos */
+.video-container {
+    display: none;
+    text-align: center;
+}
+
+/* Exibir o vídeo ativo */
+.video-container.active {
+    display: block;
+}
+
+/* Ajuste das setas de controle do carrossel */
+.carousel-controls {
+    position: absolute;
+    top: 50%; /* Mantém no meio vertical */
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%); /* Centraliza as setas */
+    pointer-events: none; /* Não interfere no vídeo */
+}
+
+/* Estilo para as setas de controle */
+.carousel-controls i {
+    font-size: 2rem;
+    color: #007bff;
+    cursor: pointer;
+    pointer-events: all; /* Habilita os cliques nas setas */
+    margin: 0 20px; /* Adiciona margem lateral às setas */
+    background-color: rgba(255, 255, 255, 0.7); /* Fundo semi-transparente */
+    border-radius: 50%; /* Para um efeito de botão arredondado */
+    padding: 10px; /* Espaço ao redor do ícone */
+    transition: background-color 0.3s; /* Efeito de transição */
+    z-index: 1; /* Assegura que as setas fiquem acima do vídeo */
+}
+
+.carousel-controls i:hover {
+    background-color: rgba(0, 123, 255, 0.3); /* Fundo ao passar o mouse */
+}
+
+/* Responsividade para vídeos em proporção 16:9 */
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* Proporção 16:9 padrão */
+    height: 0;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Ajustes para vídeos verticais em telas menores */
+@media (max-width: 768px) {
+    .video-wrapper {
+        padding-bottom: 177.77%; /* Proporção 9:16 para vídeos verticais */
+    }
+
+    .carousel-container {
+        max-width: 100%;
+        padding: 0 10px;
+    }
+
+    .carousel-controls i {
+        font-size: 1.5rem;
+        padding: 5px;
+    }
+}
+
+@media (max-width: 576px) {
+    .carousel-controls i {
+        font-size: 1.2rem;
+        padding: 4px;
+        margin: 0 10px;
+    }
+}
+
+/* Outras definições de estilo */
+footer {
+    background-color: #DBE8F6;
+}
+
+p {
+    font-family: "Poppins", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1rem;
+}
+
+h1 {
+    font-family: "Poppins", system-ui;
+    font-weight: 600;
+    font-size: 5rem;
+    color: #151515;
+}
+
+h2 {
+    font-family: "Poppins", system-ui;
+    font-weight: 600;
+    font-size: 2.25rem; /* Corrigido: Removido espaço extra */
+    color: #151515;
+}
+
+h3 {
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: #034EA2;
+}
+
+h4 {
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 700;
+    font-size: 1.125rem;
+    color: #151515;
+}
+
+h5 {
+    font-family: "Poppins", system-ui;
+    font-weight: 400;
+    font-size: 1.2rem;
+    color: #151515;
+}
+
+h6 {
+    font-family: "Poppins", system-ui;
+    font-weight: 300;
+    font-size: 1rem;
+    color: #151515;
+}
+
+.title-port {
+    font-family: "Poppins", system-ui;
+    font-weight: 600;
+    font-style: normal;
+    color: #600F8D;
+    font-size: 2.45rem;
+}
+
+.title-card-services {
+    font-family: "Poppins", system-ui;
+    font-weight: 600;
+    font-size: 1.6rem;
+    color: #151515;
+}
+
+.button-header {
+    background-color: #fff;
+    border-style: none;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #600F8D;
+}
+
+.button-header:hover {
+    background-color: hwb(35 3% 15%);
+}
+
+.bg-criare {
+    background: #833ab4;
+    background: linear-gradient(90deg, rgb(131 58 180) 0%, #c63838 70%, rgb(252 176 69) 100%);
+    font-weight: 700;
+}
+
+.logos-port {
+    height: 83px;
+    width: 207px;
+}
+
+.borda-test {
+    border-left: 1px solid #bfbfbf;
+    height: auto;
+    width: 0;
+}
+
+.text-cnpj {
+    font-size: .75rem;
+}
+
+.borda-titulo {
+    width: 150px;
+    height: 5px;
+    border-radius: 5px;
+    border-top: 0;
+    background-color: #FFCC29;
+    margin-top: 5px;
+}
+
+.card {
+    border: none;
+    background-color: #000;
+    border-radius: 16px;
+}
+
+.card-title {
+    text-align: left;
+    font-weight: 600;
+    font-size: 1.75rem;
+}
+
+.bg-opacity {
+    background-color: #000;
+}
+
+.img-port {
+    position: relative;
+    opacity: .7;
+}
+
+.links-import {
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 700;
+    letter-spacing: .25px;
+    font-size: 1.125rem;
+    color: #034EA2;
+}
+
+.button-type {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 700;
+    font-size: .875rem;
+    background-color: #034EA2;
+    border-color: #034EA2 !important;
+}
+
+.nav-link {
+    margin-left: 10px;
+}
+
+.footer-title {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 700;
+    font-size: .875rem;
+}
+
+.img-card-info {
+    border-radius: 4%;
+    width: 100%;
+    height: 190px;
+}
+
+.img-links {
+    border-radius: 12px !important;
+    box-shadow: 0 1px 6px 0 rgb(32 33 36 / 20%);
+    background-color: #fff;
+}

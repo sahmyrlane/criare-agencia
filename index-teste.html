@@ -10,12 +10,53 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
 
   <link rel="icon" type="image/x-icon" href="assets/fav-criare.svg" />
-  <link href="css/styles.css" rel="stylesheet">
+  <link href="css/styles2.css" rel="stylesheet">
 
   <title>Agência Criare</title>
 </head>
 
 <body>
+
+  <style>
+    .video-wrapper {
+            position: relative;
+            overflow: hidden;
+            padding-top: 56.25%; /* Aspect ratio 16:9 */
+        }
+
+        .video-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+        }
+
+        .video-container.active {
+            display: block;
+        }
+
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .carousel-controls i {
+            font-size: 2rem; /* Ajuste de tamanho */
+            color: white;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .carousel-controls i:hover {
+            transform: scale(1.2); /* Efeito de hover */
+        }
+</style>
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-white">
     <div class="container m-0">
@@ -288,15 +329,16 @@
 
  <!----------------------------    MODAL FASHION FILM ------------------------------------------>
  <!-- Modal Fashion Film -->
- <div class="modal fade" id="ModalFashionFilm" tabindex="-1" role="dialog" aria-labelledby="ModalFashionFilmTitle" aria-hidden="true">
-  <div class="modal-dialog modal-fullscreen" role="document">
-      <div class="modal-content">
-          <div class="modal-header">
-              <h5 class="modal-title" id="ModalFashionFilmTitle">Fashion Film</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-              <div class="carousel-container" id="fashion-carousel">
+ 
+    <!-- Modal Fashion Film -->
+    <div class="modal fade" id="ModalFashionFilm" tabindex="-1" role="dialog" aria-labelledby="ModalFashionFilmTitle" aria-hidden="true">
+      <div class="modal-dialog modal-fullscreen" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="ModalFashionFilmTitle">Fashion Film</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
                   <div class="video-wrapper">
                       <div class="video-container active" data-video-id="ID8_1PUF-qc">
                           <iframe src="https://www.youtube.com/embed/ID8_1PUF-qc" frameborder="0" allowfullscreen></iframe>
@@ -313,17 +355,15 @@
                       <div class="video-container" data-video-id="BqK1mtAUAy8">
                           <iframe src="https://www.youtube.com/embed/BqK1mtAUAy8" frameborder="0" allowfullscreen></iframe>
                       </div>
-                  </div>
-                  <div class="carousel-controls">
-                      <i id="prev-fashion" class="bi bi-chevron-left"></i>
-                      <i id="next-fashion" class="bi bi-chevron-right"></i>
+                      <div class="carousel-controls">
+                          <i id="prev-fashion" class="bi bi-chevron-left"></i>
+                          <i id="next-fashion" class="bi bi-chevron-right"></i>
+                      </div>
                   </div>
               </div>
           </div>
       </div>
   </div>
-</div>
- 
 <!----------------------------    MODAL FASHION FILM ------------------------------------------>
 
 <!----------------------------    MODAL CAPTAÇÃO ------------------------------------------>
@@ -335,17 +375,12 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-              <div class="carousel-container" id="captacao-carousel">
-                  <div class="video-wrapper">
-                      <div class="video-container active" data-video-id="kEHkVjbzAaI">
-                          <iframe src="https://www.youtube.com/embed/kEHkVjbzAaI" frameborder="0" allowfullscreen></iframe>
-                      </div>
-                      <div class="video-container" data-video-id="e2AcidznyOM">
-                          <iframe src="https://www.youtube.com/embed/e2AcidznyOM" frameborder="0" allowfullscreen></iframe>
-                      </div>
-                      <div class="video-container" data-video-id="e2AcidznyOM">
-                          <iframe src="https://www.youtube.com/embed/e2AcidznyOM" frameborder="0" allowfullscreen></iframe>
-                      </div>
+              <div class="video-wrapper">
+                  <div class="video-container active" data-video-id="e2AcidznyOM">
+                      <iframe src="https://www.youtube.com/embed/e2AcidznyOM" frameborder="0" allowfullscreen></iframe>
+                  </div>
+                  <div class="video-container" data-video-id="e2AcidznyOM">
+                      <iframe src="https://www.youtube.com/embed/e2AcidznyOM" frameborder="0" allowfullscreen></iframe>
                   </div>
                   <div class="carousel-controls">
                       <i id="prev-captacao" class="bi bi-chevron-left"></i>
@@ -388,67 +423,42 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
+  function openModal(modalId) {
+            document.getElementById(modalId).style.display = "block";
+            setupVideoCarousel(modalId);
+        }
 
-document.addEventListener("DOMContentLoaded", function () {
-            // Identificamos os modais de Fashion Film e Captação
-            const modals = {
-                'FashionFilm': {
-                    modalId: '#ModalFashionFilm',
-                    carouselId: 'fashion-carousel',
-                    videos: ['ID8_1PUF-qc', 'Wodf_G66-NQ', '8YdR0pDExCU', 'GlcOuNm79Xk', 'BqK1mtAUAy8']
-                },
-                'Captacao': {
-                    modalId: '#ModalCaptacao',
-                    carouselId: 'captacao-carousel',
-                    videos: ['kEHkVjbzAaI', 'anotherID', 'anotherID2'] // Adicione aqui os IDs de vídeo do carrossel de captação
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
+        }
+
+        function setupVideoCarousel(modalId) {
+            const carousel = document.getElementById(modalId + 'Carousel');
+            const videos = carousel.getElementsByClassName('video-container');
+            let currentIndex = 0;
+
+            // Mostra o primeiro vídeo
+            updateVideoDisplay(videos, currentIndex);
+
+            function updateVideoDisplay(videos, index) {
+                for (let i = 0; i < videos.length; i++) {
+                    videos[i].style.display = i === index ? 'block' : 'none';
                 }
-            };
-
-            // Função genérica para inicializar o carrossel de vídeos
-            function initializeCarousel(carouselId, videoIds) {
-                const videoWrapper = document.querySelector(`#${carouselId} .video-wrapper`);
-                const videoContainers = videoWrapper.querySelectorAll(".video-container");
-                let currentIndex = 0;
-
-                // Função para trocar o vídeo ativo
-                function changeVideo(index) {
-                    videoContainers.forEach((container, i) => {
-                        const iframe = container.querySelector('iframe');
-                        if (i === index) {
-                            container.classList.add('active');
-                            iframe.src = `https://www.youtube.com/embed/${videoIds[i]}?autoplay=1`;
-                        } else {
-                            container.classList.remove('active');
-                            iframe.src = ""; // Limpa o iframe quando não estiver ativo
-                        }
-                    });
-                }
-
-                // Configuração inicial
-                changeVideo(currentIndex);
-
-                // Controles de navegação no carrossel
-                document.querySelector(`#${carouselId} #prev-${carouselId.split('-')[1]}`).addEventListener('click', function () {
-                    currentIndex = (currentIndex === 0) ? videoIds.length - 1 : currentIndex - 1;
-                    changeVideo(currentIndex);
-                });
-
-                document.querySelector(`#${carouselId} #next-${carouselId.split('-')[1]}`).addEventListener('click', function () {
-                    currentIndex = (currentIndex === videoIds.length - 1) ? 0 : currentIndex + 1;
-                    changeVideo(currentIndex);
-                });
             }
 
-            // Inicializa o carrossel do Fashion Film quando o modal é aberto
-            $(modals.FashionFilm.modalId).on('shown.bs.modal', function () {
-                initializeCarousel(modals.FashionFilm.carouselId, modals.FashionFilm.videos);
-            });
+            window.navigateCarousel = function(carouselId, direction) {
+                const videos = document.getElementById(carouselId).getElementsByClassName('video-container');
+                currentIndex += direction;
 
-            // Inicializa o carrossel de Captação quando o modal é aberto
-            $(modals.Captacao.modalId).on('shown.bs.modal', function () {
-                initializeCarousel(modals.Captacao.carouselId, modals.Captacao.videos);
-            });
-        });
+                if (currentIndex < 0) {
+                    currentIndex = videos.length - 1; // Volta para o último vídeo
+                } else if (currentIndex >= videos.length) {
+                    currentIndex = 0; // Volta para o primeiro vídeo
+                }
+
+                updateVideoDisplay(videos, currentIndex);
+            };
+        }
 </script>
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
