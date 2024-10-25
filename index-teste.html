@@ -328,45 +328,32 @@
 
 
  <!----------------------------    MODAL FASHION FILM ------------------------------------------>
- <!-- Modal Fashion Film -->
- 
-    <!-- Modal Fashion Film -->
-    <div class="modal fade" id="ModalFashionFilm" tabindex="-1" role="dialog" aria-labelledby="ModalFashionFilmTitle" aria-hidden="true">
-      <div class="modal-dialog modal-fullscreen" role="document">
-          <div class="modal-content">
-              <div class="modal-header">
-                  <h5 class="modal-title" id="ModalFashionFilmTitle">Fashion Film</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                  <div class="video-wrapper">
-                      <div class="video-container active" data-video-id="ID8_1PUF-qc">
-                          <iframe src="https://www.youtube.com/embed/ID8_1PUF-qc" frameborder="0" allowfullscreen></iframe>
-                      </div>
-                      <div class="video-container" data-video-id="Wodf_G66-NQ">
-                          <iframe src="https://www.youtube.com/embed/Wodf_G66-NQ" frameborder="0" allowfullscreen></iframe>
-                      </div>
-                      <div class="video-container" data-video-id="8YdR0pDExCU">
-                          <iframe src="https://www.youtube.com/embed/8YdR0pDExCU" frameborder="0" allowfullscreen></iframe>
-                      </div>
-                      <div class="video-container" data-video-id="GlcOuNm79Xk">
-                          <iframe src="https://www.youtube.com/embed/GlcOuNm79Xk" frameborder="0" allowfullscreen></iframe>
-                      </div>
-                      <div class="video-container" data-video-id="BqK1mtAUAy8">
-                          <iframe src="https://www.youtube.com/embed/BqK1mtAUAy8" frameborder="0" allowfullscreen></iframe>
-                      </div>
-                      <div class="carousel-controls">
-                          <i id="prev-fashion" class="bi bi-chevron-left"></i>
-                          <i id="next-fashion" class="bi bi-chevron-right"></i>
-                      </div>
-                  </div>
-              </div>
-          </div>
+<div class="modal fade" id="ModalFashionFilm" tabindex="-1" role="dialog" aria-labelledby="ModalFashionFilmTitle" aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ModalFashionFilmTitle">Fashion Film</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
+      <div class="modal-body">
+        <div class="video-wrapper">
+          <div class="carousel" id="carouselFashionFilm">
+            <div class="video-container active" data-video="2auGnJKCXgQ"></div>
+            <div class="video-container" data-video="EqWID8Px2J4"></div>
+            <div class="video-container" data-video="tx8tACYo0sY"></div>
+            <button class="carousel-control prev" id="prevFashionFilm">&lt;</button>
+            <button class="carousel-control next" id="nextFashionFilm">&gt;</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+</div>
+
 <!----------------------------    MODAL FASHION FILM ------------------------------------------>
 
 <!----------------------------    MODAL CAPTAÇÃO ------------------------------------------>
+
 <div class="modal fade" id="ModalCaptacao" tabindex="-1" role="dialog" aria-labelledby="ModalCaptacaoTitle" aria-hidden="true">
   <div class="modal-dialog modal-fullscreen" role="document">
       <div class="modal-content">
@@ -376,15 +363,12 @@
           </div>
           <div class="modal-body">
               <div class="video-wrapper">
-                  <div class="video-container active" data-video-id="e2AcidznyOM">
-                      <iframe src="https://www.youtube.com/embed/e2AcidznyOM" frameborder="0" allowfullscreen></iframe>
-                  </div>
-                  <div class="video-container" data-video-id="e2AcidznyOM">
-                      <iframe src="https://www.youtube.com/embed/e2AcidznyOM" frameborder="0" allowfullscreen></iframe>
-                  </div>
-                  <div class="carousel-controls">
-                      <i id="prev-captacao" class="bi bi-chevron-left"></i>
-                      <i id="next-captacao" class="bi bi-chevron-right"></i>
+                  <div class="carousel" id="carouselCaptacao">
+                      <div class="video-container" data-video="2auGnJKCXgQ"></div>
+                      <div class="video-container" data-video="EqWID8Px2J4" style="display:none;"></div>
+                      <div class="video-container" data-video="tx8tACYo0sY" style="display:none;"></div>
+                      <button class="carousel-control prev" id="prevCaptacao">&lt;</button>
+                      <button class="carousel-control next" id="nextCaptacao">&gt;</button>
                   </div>
               </div>
           </div>
@@ -392,7 +376,9 @@
   </div>
 </div>
 
-<!----------------------------    MODAL MODAL CAPTAÇÃO ------------------------------------------>
+<!----------------------------    MODAL CAPTAÇÃO ------------------------------------------>
+
+
 
 <footer>
 <div class="row d-flex justify-content-center bg-white mt-4 pt-4">
@@ -423,26 +409,43 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
- const slides = document.querySelectorAll('.slide');
-let currentSlide = 0;
+<script>
+  const videoContainers = document.querySelectorAll('.video-container');
+  let currentVideoIndex = 0;
 
-function showSlide(index) {
-    slides.forEach((slide, i) => {
-        slide.classList.toggle('active', i === index);
+  function loadVideo(index) {
+    const videoContainer = videoContainers[index];
+    if (videoContainer) {
+      videoContainer.innerHTML = `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/${videoContainer.dataset.video}" frameborder="0" allowfullscreen></iframe>`;
+    }
+  }
+
+  function showVideo(index) {
+    videoContainers.forEach((container, i) => {
+      container.classList.toggle('active', i === index);
+      if (i === index) {
+        loadVideo(index);
+      } else {
+        container.innerHTML = ''; // Limpa o conteúdo para evitar múltiplos carregamentos
+      }
     });
-}
+  }
 
-document.querySelector('.next').addEventListener('click', () => {
-    currentSlide = (currentSlide + 1) % slides.length;
-    showSlide(currentSlide);
-});
+  document.getElementById('nextFashionFilm').addEventListener('click', () => {
+    currentVideoIndex = (currentVideoIndex + 1) % videoContainers.length;
+    showVideo(currentVideoIndex);
+  });
 
-document.querySelector('.prev').addEventListener('click', () => {
-    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-    showSlide(currentSlide);
-});
+  document.getElementById('prevFashionFilm').addEventListener('click', () => {
+    currentVideoIndex = (currentVideoIndex - 1 + videoContainers.length) % videoContainers.length;
+    showVideo(currentVideoIndex);
+  });
 
-showSlide(currentSlide);
+  // Carrega o primeiro vídeo ao abrir o modal
+  $('#ModalFashionFilm').on('show.bs.modal', () => {
+    loadVideo(currentVideoIndex);
+  });
+</script>
 
 </script>
 
