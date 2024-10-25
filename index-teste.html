@@ -17,47 +17,6 @@
 
 <body>
 
-  <style>
-    .video-wrapper {
-            position: relative;
-            overflow: hidden;
-            padding-top: 56.25%; /* Aspect ratio 16:9 */
-        }
-
-        .video-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: none;
-        }
-
-        .video-container.active {
-            display: block;
-        }
-
-        .carousel-controls {
-            position: absolute;
-            top: 50%;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            transform: translateY(-50%);
-        }
-
-        .carousel-controls i {
-            font-size: 2rem; /* Ajuste de tamanho */
-            color: white;
-            cursor: pointer;
-            transition: transform 0.2s;
-        }
-
-        .carousel-controls i:hover {
-            transform: scale(1.2); /* Efeito de hover */
-        }
-</style>
-
   <nav class="navbar navbar-expand-lg navbar-dark bg-white">
     <div class="container m-0">
       <a class="navbar-brand" href=""><img src="src/logo-criare.svg"></a>
@@ -328,57 +287,104 @@
 
 
  <!----------------------------    MODAL FASHION FILM ------------------------------------------>
-<div class="modal fade" id="ModalFashionFilm" tabindex="-1" role="dialog" aria-labelledby="ModalFashionFilmTitle" aria-hidden="true">
-  <div class="modal-dialog modal-fullscreen" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="ModalFashionFilmTitle">Fashion Film</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="video-wrapper">
-          <div class="carousel" id="carouselFashionFilm">
-            <div class="video-container active" data-video="2auGnJKCXgQ"></div>
-            <div class="video-container" data-video="EqWID8Px2J4"></div>
-            <div class="video-container" data-video="tx8tACYo0sY"></div>
-            <button class="carousel-control prev" id="prevFashionFilm">&lt;</button>
-            <button class="carousel-control next" id="nextFashionFilm">&gt;</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+ <div class="modal fade" id="ModalFashionFilm" tabindex="-1" role="dialog" aria-labelledby="ModalFashionFilmTitle"
+ aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen" role="document">
+        <div class="modal-content">
+                <div class="modal-header">
+                        <h5 class="modal-title" id="ModalFashionFilmTitle">Fashion Film</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+            
+                <div class="container mt-5">
+                  <h2 class="text-center mb-2">Fashion films</h2>
+                  <p class="text-center">Alguns fashions films criados pela nossa agência, que são vídeos curtos que mostram detalhes das peças em movimento com modelos, utilizando músicas trends</p>
+              
+                  <div id="carouselFashionFilm" class="carousel-container">
+                    <div class="video-wrapper">
+                      <div class="video-container active" data-video-id="ID8_1PUF-qc">
+                        <iframe id="player1" src="" frameborder="0" allowfullscreen></iframe>
+                      </div>
+                      <div class="video-container" data-video-id="Wodf_G66-NQ">
+                        <iframe id="player2" src="" frameborder="0" allowfullscreen></iframe>
+                      </div>
+                      <div class="video-container" data-video-id="8YdR0pDExCU">
+                        <iframe id="player3" src="" frameborder="0" allowfullscreen></iframe>
+                      </div>
+                      <div class="video-container" data-video-id="GlcOuNm79Xk">
+                        <iframe id="player4" src="" frameborder="0" allowfullscreen></iframe>
+                      </div>
+                      <div class="video-container" data-video-id="BqK1mtAUAy8">
+                        <iframe id="player5" src="" frameborder="0" allowfullscreen></iframe>
+                      </div>
+                    </div>
+                  
+                    <!-- Setas de controle do carrossel -->
+                    <div class="carousel-controls d-flex align-items-center">
+                      <i id="prevFashion" class="bi bi-chevron-left"></i>
+                      <i id="nextFashion" class="bi bi-chevron-right"></i>
+                    </div>
+                  </div>
+                  
+                
 
+              </div>              
+            </div>
+
+</div>
+</div>
+ 
 <!----------------------------    MODAL FASHION FILM ------------------------------------------>
 
 <!----------------------------    MODAL CAPTAÇÃO ------------------------------------------>
-
-<div class="modal fade" id="ModalCaptacao" tabindex="-1" role="dialog" aria-labelledby="ModalCaptacaoTitle" aria-hidden="true">
-  <div class="modal-dialog modal-fullscreen" role="document">
-      <div class="modal-content">
-          <div class="modal-header">
-              <h5 class="modal-title" id="ModalCaptacaoTitle">Captação</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-              <div class="video-wrapper">
-                  <div class="carousel" id="carouselCaptacao">
-                      <div class="video-container" data-video="2auGnJKCXgQ"></div>
-                      <div class="video-container" data-video="EqWID8Px2J4" style="display:none;"></div>
-                      <div class="video-container" data-video="tx8tACYo0sY" style="display:none;"></div>
-                      <button class="carousel-control prev" id="prevCaptacao">&lt;</button>
-                      <button class="carousel-control next" id="nextCaptacao">&gt;</button>
+<div class="modal fade" id="ModalCaptacao" tabindex="-1" role="dialog" aria-labelledby="ModalCaptacao"
+aria-hidden="true">
+   <div class="modal-dialog modal-fullscreen" role="document">
+       <div class="modal-content">
+               <div class="modal-header">
+                       <h5 class="modal-title" id="ModalCaptacao">Captação</h5>
+                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div>
+           
+               <div class="container mt-5">
+                 <h2 class="text-center mb-2">Captação</h2>
+                 <p class="text-center">Alguns fashions films criados pela nossa agência, que são vídeos curtos que mostram detalhes das peças em movimento com modelos, utilizando músicas trends</p>
+             
+                 <div id="carouselCaptacao1" class="carousel-container">
+                  <div class="video-wrapper">
+                    <div class="video-container active" data-video-id="AQ8318-iAPc">
+                      <iframe id="player6" src="" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-container" data-video-id="g7AhZgCbfRE">
+                      <iframe id="player7" src="" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-container" data-video-id="8YdR0pDExCU">
+                      <iframe id="player8" src="" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-container" data-video-id="GlcOuNm79Xk">
+                      <iframe id="player9" src="" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-container" data-video-id="BqK1mtAUAy8">
+                      <iframe id="player10" src="" frameborder="0" allowfullscreen></iframe>
+                    </div>
                   </div>
-              </div>
-          </div>
-      </div>
-  </div>
+                
+                  <!-- Setas de controle do carrossel -->
+                  <div class="carousel-controls d-flex align-items-center">
+                    <i id="prevCaptacao" class="bi bi-chevron-left"></i>
+                    <i id="nextCaptacao" class="bi bi-chevron-right"></i>
+                  </div>
+                </div>
+                
+                 
+
+             </div>              
+           </div>
+
+</div>
 </div>
 
-<!----------------------------    MODAL CAPTAÇÃO ------------------------------------------>
-
-
+<!----------------------------    MODAL MODAL CAPTAÇÃO ------------------------------------------>
 
 <footer>
 <div class="row d-flex justify-content-center bg-white mt-4 pt-4">
@@ -408,46 +414,8 @@
 <!-- jQuery, Bootstrap JS, and YouTube API -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-<script>
-  const videoContainers = document.querySelectorAll('.video-container');
-  let currentVideoIndex = 0;
+<script src="caroseul-teste.js"></script>
 
-  function loadVideo(index) {
-    const videoContainer = videoContainers[index];
-    if (videoContainer) {
-      videoContainer.innerHTML = `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/${videoContainer.dataset.video}" frameborder="0" allowfullscreen></iframe>`;
-    }
-  }
-
-  function showVideo(index) {
-    videoContainers.forEach((container, i) => {
-      container.classList.toggle('active', i === index);
-      if (i === index) {
-        loadVideo(index);
-      } else {
-        container.innerHTML = ''; // Limpa o conteúdo para evitar múltiplos carregamentos
-      }
-    });
-  }
-
-  document.getElementById('nextFashionFilm').addEventListener('click', () => {
-    currentVideoIndex = (currentVideoIndex + 1) % videoContainers.length;
-    showVideo(currentVideoIndex);
-  });
-
-  document.getElementById('prevFashionFilm').addEventListener('click', () => {
-    currentVideoIndex = (currentVideoIndex - 1 + videoContainers.length) % videoContainers.length;
-    showVideo(currentVideoIndex);
-  });
-
-  // Carrega o primeiro vídeo ao abrir o modal
-  $('#ModalFashionFilm').on('show.bs.modal', () => {
-    loadVideo(currentVideoIndex);
-  });
-</script>
-
-</script>
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
