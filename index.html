@@ -31,10 +31,10 @@
 
   <div class="mt-5 bg-criare ml-0 mr-0">
     <div class="row align-items-center pl-5">
-      <div class="ms-lg-5 ps-lg-5 pt-4 col-12 col-lg-7 text-lg-start text-center">
-        <h1 class="text-white text-lg-start text-center">Vem ser Criare!</h1>
-        <h2 class="text-white text-lg-start text-center">Sua moda, nossa criatividade!</h2>
-        <h5 class="text-white text-lg-start text-center py-lg-3">Precisa de ajuda na sua marca de Moda? A Criare pode te ajudar!</h5>
+      <div class="ms-lg-5 ps-5 pt-4 col-12 col-lg-7 text-start">
+        <h1 class="text-white text-start">Vem ser Criare!</h1>
+        <h2 class="text-white text-start">Sua moda, nossa criatividade!</h2>
+        <h5 class="text-white text-start py-lg-3">Precisa de ajuda na sua marca de Moda? A Criare pode te ajudar!</h5>
         <a href="https://wa.me/5585989110048?text=" target="_blank" class=""><button class="btn btn-primary rounded-pill button-header mt-2 px-lg-5 " type="button">FALE COM A GENTE AQUI</button>
         </a>
       </div>
@@ -270,7 +270,10 @@
       </div>
       <div class="modal-body">
         <div id="carouselExampleControlsDesign" class="carousel slide" data-bs-ride="carousel" data-bs-interval="0">
-          <div class="carousel-inner row text-center">
+
+
+           <div class="carousel-inner row text-center">
+           
             <div class="carousel-item active">
               <img class="img-slide" src="src/fotos-design/storie (1).png" alt="">
             </div>
@@ -315,8 +318,6 @@
               <img class="img-slide" src="src/fotos-design/storie (15).png" alt="">
             </div>
             
-            <!-- Continue o mesmo padrão para os demais itens -->
-          </div>
           <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsDesign" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
@@ -325,8 +326,14 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
           </button>
+
+          
         </div>
-      </div>
+
+      </div>  
+      <div class="indicator-dots pt-2" id="indicatorDotsDesign"></div>
+   
+    </div>
     </div>
   </div>
 </div>
@@ -342,7 +349,9 @@
       </div>
       <div class="modal-body">
         <div id="carouselExampleControlsProd" class="carousel slide" data-bs-ride="carousel" data-bs-interval="0">
-          <div class="carousel-inner row text-center">
+
+           <div class="carousel-inner row text-center">
+
             <div class="carousel-item active">
 
               <img class="img-slide" src="src/fotos-port/port-1.jpg" alt="Primeiro slide">
@@ -382,8 +391,14 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
           </button>
+
         </div>
+
+        <div class="indicator-dots text-center" id="indicatorDotsProd"></div>
+
+
       </div>
+
     </div>
   </div>
 </div>
@@ -526,7 +541,51 @@
     </div>
   </footer>
 
-  <!-- jQuery, Bootstrap JS, and YouTube API -->
+  
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    function initCarouselDots(carouselId, dotsContainerId) {
+      const carouselElement = document.getElementById(carouselId);
+      const dotsContainer = document.getElementById(dotsContainerId);
+
+      if (!carouselElement || !dotsContainer) {
+        console.error(`Elemento não encontrado: ${carouselId} ou ${dotsContainerId}`);
+        return;
+      }
+
+      const totalSlides = carouselElement.querySelectorAll(".carousel-item").length;
+      console.log(`Iniciando dots para: ${carouselId} com ${totalSlides} slides.`);
+
+      // Cria bolinhas indicadoras com evento de clique
+      for (let i = 0; i < totalSlides; i++) {
+        const dot = document.createElement("div");
+        dot.classList.add("dot");
+        if (i === 0) dot.classList.add("active");
+
+        dot.addEventListener("click", function() {
+          new bootstrap.Carousel(carouselElement).to(i);
+        });
+
+        dotsContainer.appendChild(dot);
+        console.log(`Dot ${i + 1} criado para ${carouselId}.`);
+      }
+
+      const dots = dotsContainer.querySelectorAll(".dot");
+
+      // Atualiza o estado da bolinha ativa ao mudar o slide
+      carouselElement.addEventListener("slid.bs.carousel", function(event) {
+        dots.forEach(dot => dot.classList.remove("active"));
+        dots[event.to].classList.add("active");
+        console.log(`Slide ${event.to + 1} ativo em ${carouselId}.`);
+      });
+    }
+
+    // Inicializa as bolinhas para os carrosséis
+    initCarouselDots("carouselExampleControlsDesign", "indicatorDotsDesign");
+    initCarouselDots("carouselExampleControlsProd", "indicatorDotsProd");
+  });
+</script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="caroseul-teste.js"></script>

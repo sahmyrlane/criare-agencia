@@ -11,13 +11,24 @@ body {
     font-size: 0.875rem !important
 }
 
- /* Centraliza e ajusta o carrossel */
- .carousel-container {
-    width: 100%;
-    margin: 0 auto;
+.indicator-dots {
     position: relative;
-    overflow: hidden;
-}
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 10px; /* Adiciona espaço entre a imagem e as bolinhas */
+  }
+  .dot {
+    width: 10px;
+    height: 10px;
+    background-color: #bbb;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+    cursor: pointer;
+  }
+  .dot.active {
+    background-color: #000;
+  }
 
 /* Ocultar os vídeos que não estão ativos */
 .video-container {
