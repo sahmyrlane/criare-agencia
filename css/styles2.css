@@ -341,6 +341,30 @@ h6 {
 
 /* Ajustes para vídeos verticais em telas menores */
 @media (max-width: 768px) {
+
+    h1 {
+        font-family: "Poppins", system-ui;
+        font-weight: 600;
+        font-style: normal;
+        font-size: 3.5rem;
+        color: #151515
+    }
+    
+    h2 {
+        font-family: "Poppins", system-ui;
+        font-weight: 600;
+        font-style: normal;
+        font-size: 1.25rem;
+        color: #151515
+    }
+
+    .button-header {
+       font-size: 1.25rem; 
+    }
+
+    .title-port{
+        font-size: 2.15rem; 
+    }
     .video-wrapper {
         padding-bottom: 177.77%; /* Proporção 9:16 para vídeos verticais */
     }
