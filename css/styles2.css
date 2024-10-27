@@ -369,6 +369,10 @@ h6 {
         color: #151515
     }
 
+    h5{
+        font-size: 0.85rem;
+    }
+
     .button-header {
        font-size: 1.25rem; 
     }
