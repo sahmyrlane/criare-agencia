@@ -9,8 +9,12 @@ body {
     font-style: normal;
     background-color: #F3F3F3;
     font-size: 0.875rem !important
-}
 
+}
+* {
+    max-width: 100vw;
+    box-sizing: border-box;
+}
 .indicator-dots {
     position: relative;
     display: flex;
