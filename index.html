@@ -264,13 +264,15 @@
 <div class="modal fade" id="ModalDesign" tabindex="-1" role="dialog" aria-labelledby="ModalDesignTitle" aria-hidden="true">
   <div class="modal-dialog modal-fullscreen" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="ModalDesignTitle">Produção de moda</h5>
+      <div class="modal-header py-2 ">
+        <h5 class="modal-title " id="ModalDesignTitle">Design</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <div id="carouselExampleControlsDesign" class="carousel slide" data-bs-ride="carousel" data-bs-interval="0">
+               
 
+
+        <div id="carouselExampleControlsDesign" class="carousel slide" data-bs-ride="carousel" data-bs-interval="0">
 
            <div class="carousel-inner row text-center">
            
@@ -331,7 +333,10 @@
         </div>
 
       </div>  
-      <div class="indicator-dots pt-2" id="indicatorDotsDesign"></div>
+
+      <p class="text-center pt-2">Criamos design que combinam com a identidade visual de cada marca, com conteúdos diárias e atraentes para os seus clientes.</p>
+
+      <div class="indicator-dots " id="indicatorDotsDesign"></div>
    
     </div>
     </div>
@@ -343,11 +348,12 @@
 <div class="modal fade" id="ModalProd" tabindex="-1" role="dialog" aria-labelledby="ModalProdTitle" aria-hidden="true">
   <div class="modal-dialog modal-fullscreen" role="document">
     <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header py-2">
         <h5 class="modal-title" id="ModalProdTitle">Produção de moda</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
+        <h2 class="text-center  mb-2"></h2>        
         <div id="carouselExampleControlsProd" class="carousel slide" data-bs-ride="carousel" data-bs-interval="0">
 
            <div class="carousel-inner row text-center">
@@ -393,6 +399,7 @@
           </button>
 
         </div>
+        <p class="text-center">Produções de moda que realizamos em estúdios diversos fotográficos com temas de coleções diversas e atraentes.</p>
 
         <div class="indicator-dots text-center" id="indicatorDotsProd"></div>
 
@@ -409,14 +416,13 @@
     aria-hidden="true">
     <div class="modal-dialog modal-fullscreen" role="document">
       <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="ModalFashionFilmTitle">Fashion Film</h5>
+        <div class="modal-header py-2">
+          <h5 class="modal-title" id="ModalFashionFilmTitle">Fashion films</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
 
-        <div class="container mt-5">
-          <h2 class="text-center mb-2">Fashion films</h2>
-          <p class="text-center">Vídeos curtos que mostram detalhes das peças em movimento, utilizando músicas trends.</p>
+
+        <div class="container pt-5">
 
           <div id="carouselFashionFilm" class="carousel-container">
             <div class="video-wrapper">
@@ -443,6 +449,9 @@
               <i id="nextFashion" class="bi bi-chevron-right"></i>
             </div>
           </div>
+          <p class="text-center pt-3">Vídeos curtos que mostram detalhes das peças em movimento, utilizando músicas trends.</p>
+
+          <div class="indicator-dots " id="indicatorDotsFashionFilm"></div>
 
 
 
@@ -464,9 +473,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
 
-        <div class="container mt-5">
-          <h2 class="text-center mb-2">Captação</h2>
-          <p class="text-center">Realizamos captações em lojas, externas em ambientes públicos.</p>
+        <div class="container pt-5">
 
           <div id="carouselCaptacao1" class="carousel-container">
             <div class="video-wrapper">
@@ -502,7 +509,9 @@
               <i id="nextCaptacao" class="bi bi-chevron-right"></i>
             </div>
           </div>
+          <p class="text-center mt-3">Realizamos captações em lojas, externas em ambientes públicos, com vendedores e influenciadoras, gerando maior conexão com seu público.</p>
 
+          <div class="indicator-dots" id="indicatorDotsCaptacao"></div>
 
 
         </div>
@@ -540,7 +549,7 @@
 
     </div>
   </footer>
-
+ 
   
 
 <script>
@@ -584,6 +593,73 @@
     // Inicializa as bolinhas para os carrosséis
     initCarouselDots("carouselExampleControlsDesign", "indicatorDotsDesign");
     initCarouselDots("carouselExampleControlsProd", "indicatorDotsProd");
+  });
+</script>
+
+<script>
+ 
+ document.addEventListener("DOMContentLoaded", function() {
+    // Função para inicializar um carrossel de vídeos com bolinhas
+    function initVideoCarousel(carouselId, prevControlId, nextControlId, dotsContainerId) {
+      const videoContainers = document.querySelectorAll(`#${carouselId} .video-container`);
+      const dotsContainer = document.getElementById(dotsContainerId);
+      let currentSlide = 0;
+
+      // Cria as bolinhas de navegação
+      videoContainers.forEach((videoContainer, index) => {
+        const dot = document.createElement("div");
+        dot.classList.add("dot");
+        if (index === 0) dot.classList.add("active");
+        
+        dot.addEventListener("click", () => goToSlide(index));
+        dotsContainer.appendChild(dot);
+      });
+
+      // Função para ir para o slide específico
+      function goToSlide(slideIndex) {
+        videoContainers[currentSlide].classList.remove("active");
+        videoContainers[slideIndex].classList.add("active");
+        updateVideoSource(slideIndex);
+
+        // Atualiza as bolinhas
+        const dots = dotsContainer.querySelectorAll(".dot");
+        dots[currentSlide].classList.remove("active");
+        dots[slideIndex].classList.add("active");
+
+        currentSlide = slideIndex;
+      }
+
+      // Atualiza a URL do iframe do vídeo atual
+      function updateVideoSource(slideIndex) {
+        videoContainers.forEach((videoContainer, index) => {
+          const iframe = videoContainer.querySelector("iframe");
+          if (index === slideIndex) {
+            const videoId = videoContainer.getAttribute("data-video-id");
+            iframe.src = `https://www.youtube.com/embed/${videoId}`;
+          } else {
+            iframe.src = ""; // Para pausar os outros vídeos
+          }
+        });
+      }
+
+      // Navegação com as setas de controle
+      document.getElementById(prevControlId).addEventListener("click", () => {
+        const newIndex = (currentSlide === 0) ? videoContainers.length - 1 : currentSlide - 1;
+        goToSlide(newIndex);
+      });
+
+      document.getElementById(nextControlId).addEventListener("click", () => {
+        const newIndex = (currentSlide === videoContainers.length - 1) ? 0 : currentSlide + 1;
+        goToSlide(newIndex);
+      });
+
+      // Inicializa o primeiro vídeo
+      updateVideoSource(currentSlide);
+    }
+
+    // Inicializa os dois carrosséis
+    initVideoCarousel("carouselCaptacao1", "prevCaptacao", "nextCaptacao", "indicatorDotsCaptacao");
+    initVideoCarousel("carouselFashionFilm", "prevFashion", "nextFashion", "indicatorDotsFashionFilm");
   });
 </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
